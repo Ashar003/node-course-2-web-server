@@ -37,7 +37,7 @@ hbs.registerHelper('screamIt', (text) => {
 app.get('/', (req, res) => {
    res.render('home.hbs', {
        pageTitle: 'Home Page',
-        welMessage: 'Well hello!, welcome to the home page.'
+        welMessage: 'Well hello! Welcome to the home page.'
 
    });
 });
@@ -48,12 +48,19 @@ app.get('/about',(req,res) => {
     });
 });
 
+app.get('/projects', (req, res) => {
+    res.render('projects.hbs', {
+        pageTitle: `Projects Page`,
+        projMessage: `Hello! Thanks for checking out my project's page.`
+    });
+});
+
+
 app.get('/bad', (req, res) => {
     res.send({
         errorMessage: 'Unable to handle request'
     });
 });
-
 
 app.listen(port, () => {
     console.log(`Server is up on port ${port}`);
